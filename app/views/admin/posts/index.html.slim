@@ -1,0 +1,20 @@
+h1 記事一覧
+
+= link_to '記事作成', new_admin_post_path
+
+table
+  thead
+    tr
+      th title
+      th eyecatch
+      th published
+      th action
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = image_tag post.eyecatch.crop_image.url
+        td = post.published
+        td
+          = link_to '編集', edit_admin_post_path(post)
+          = link_to '削除', admin_post_path(post), method: :delete, data: { confirm: "投稿「#{post.title}」を削除します。よろしいですか？" }
