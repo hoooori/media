@@ -3,12 +3,12 @@
     = f.label :title
     = f.text_field :title
   div
-    = f.label :content
-    = f.text_area :content
-  div
     = f.label :eyecatch
     = f.file_field :eyecatch
   div
     = f.label :published
     = f.check_box :published
   = f.submit
+  textarea data-uk-htmleditor='{markdown:true}' name='post[content]'
+    = post.content
+
