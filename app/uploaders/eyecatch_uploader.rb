@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EyecatchUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
@@ -14,11 +16,11 @@ class EyecatchUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/eyecatch/"
+    'uploads/eyecatch/'
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # レコードを削除すると同名の画像ファイルが全て消えてしまう為、ファイル名をユニークに
@@ -28,8 +30,8 @@ class EyecatchUploader < CarrierWave::Uploader::Base
 
   protected
 
-    def secure_token
-      var = :"@#{mounted_as}_secure_token"
-      model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-    end
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) || model.instance_variable_set(var, SecureRandom.uuid)
+  end
 end

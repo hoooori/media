@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
@@ -9,8 +11,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @post = Post.new(post_params)
@@ -40,11 +41,11 @@ class Admin::PostsController < ApplicationController
 
   private
 
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:title, :content, :eyecatch, :published)
-    end
+  def post_params
+    params.require(:post).permit(:title, :content, :eyecatch, :published)
+  end
 end
