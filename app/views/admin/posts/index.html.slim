@@ -1,19 +1,19 @@
-h3 記事一覧
+h2 記事一覧
 
-= link_to '記事作成', new_admin_post_path
-
-table
+table.table.table-bordered.table-hover#post-table
   thead
     tr
-      th title
-      th eyecatch
-      th published
-      th action
+      th style='width: 10%' eyecatch
+      th style='width: 30%' title
+      th style='width: 30%' published
+      th style='width: 30%' action
   tbody
     - @posts.each do |post|
       tr
+        td
+          .eyecatch
+            = image_tag post.eyecatch.crop_image.url, class: 'eyecatch__image'
         td = post.title
-        td = image_tag post.eyecatch.crop_image.url
         td = post.published
         td
           = link_to '編集', edit_admin_post_path(post)

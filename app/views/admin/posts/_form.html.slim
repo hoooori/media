@@ -1,14 +1,15 @@
 = form_with model: [:admin, post], local: true do |f|
-  div
-    = f.label :title
-    = f.text_field :title
-  div
-    = f.label :eyecatch
-    = f.file_field :eyecatch
-  div
-    = f.label :published
-    = f.check_box :published
-  = f.submit
+  .form-group.row
+    = f.label :title, class: 'col-lg-1 col-xl-1'
+    = f.text_field :title, class: 'form-control form-control-sm col-lg-5 col-xl-5'
+  .form-group.row
+    = f.label :eyecatch, class: 'col-lg-1 col-xl-1'
+    = f.file_field :eyecatch, class: 'form-control-file col-lg-5 col-xl-5'
+  .form-check
+    = f.check_box :published, class: 'form-check-input'
+    = f.label :published, class: 'form-check-label'
+  .row
+    = f.submit class: 'mb-3 btn btn-primary btn-sm offset-lg-11 offset-xl-11'
   textarea data-uk-htmleditor='{markdown:true}' name='post[content]'
     = post.content
 
