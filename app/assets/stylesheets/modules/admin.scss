@@ -1,0 +1,36 @@
+// layout
+.admin-wrapper {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+
+  .admin-sidebar {
+    width: 15%;
+    position: relative;
+    border-right: 1px solid rgba(0,0,0,.125);
+
+    &-inner {
+      width: 15%;
+      position: fixed;
+    }
+  }
+
+  .admin-content {
+    width: 85%;
+  }
+}
+
+// component
+.admin-menu {
+  border-top: 1px solid rgba(0,0,0,.125);
+
+  &__item {
+    display: block;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+
+    &-active {
+      border-right: 10px solid #388fec;
+    }
+  }
+}

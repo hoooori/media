@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::PostsController < ApplicationController
+  layout 'admin'
   before_action :set_post, only: %i[edit update destroy]
 
   def index
@@ -11,7 +12,8 @@ class Admin::PostsController < ApplicationController
     @post = Post.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @post = Post.new(post_params)
@@ -33,8 +35,6 @@ class Admin::PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to admin_posts_path
-    else
       redirect_to admin_posts_path
     end
   end
