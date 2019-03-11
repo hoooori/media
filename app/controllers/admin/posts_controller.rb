@@ -2,7 +2,7 @@
 
 class Admin::PostsController < ApplicationController
   layout 'admin'
-  before_action :set_post, only: %i[edit update destroy]
+  before_action :find_post, only: %i[edit update destroy]
 
   def index
     @posts = Post.all
@@ -19,7 +19,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to admin_posts_path
+      redirect_to admin_posts_path, flash: { success: create_flash_message('success', 'create', @post, :title) }
     else
       render :new
     end
@@ -27,21 +27,19 @@ class Admin::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to admin_posts_path
+      redirect_to admin_posts_path, flash: { success: create_flash_message('success', 'update', @post, :title) }
     else
       render :edit
     end
   end
 
   def destroy
-    if @post.destroy
-      redirect_to admin_posts_path
-    end
+    redirect_to admin_posts_path, flash: { success: create_flash_message('success', 'destroy', @post, :title) } if @post.destroy
   end
 
   private
 
-  def set_post
+  def find_post
     @post = Post.find(params[:id])
   end
 

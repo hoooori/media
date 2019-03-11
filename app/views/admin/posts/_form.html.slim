@@ -1,9 +1,11 @@
+= render 'shared/validation_error', obj: post
+
 = form_with model: [:admin, post], local: true do |f|
   .form-group.row
-    = f.label :title, class: 'col-lg-1 col-xl-1'
+    = f.label :title, class: 'col-lg-2 col-xl-2'
     = f.text_field :title, class: 'form-control form-control-sm col-lg-5 col-xl-5'
   .form-group.row
-    = f.label :eyecatch, class: 'col-lg-1 col-xl-1'
+    = f.label :eyecatch, class: 'col-lg-2 col-xl-2'
     = f.file_field :eyecatch, class: 'form-control-file col-lg-5 col-xl-5'
   .form-check
     = f.check_box :published, class: 'form-check-input'

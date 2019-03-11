@@ -1,0 +1,34 @@
+ja:
+  actions:
+    default:
+      index: 一覧
+      new: 作成
+      create: 作成
+      edit: 編集
+      update: 更新
+      destroy: 削除
+    with_obj:
+      index: "%{obj}一覧"
+      new: "%{obj}作成"
+      create: "%{obj}作成"
+      edit: "%{obj}編集"
+      update: "%{obj}更新"
+      destroy: "%{obj}削除"
+  words:
+    login: ログイン
+    logout: ログアウト
+  flash:
+    default:
+      success: "%{obj}を%{action}しました"
+      failed: "%{obj}の%{action}に失敗しました"
+    login:
+      success: ログインしました
+      failed: メールアドレスまたはパスワードが正しくありません
+      required: ログインしてください
+    logout: ログアウトしました
+  dialog: "%{obj}を%{action}します。よろしいでしょうか？"
+  boolean:
+    post:
+      published:
+        true: 'public'
+        false: 'private'

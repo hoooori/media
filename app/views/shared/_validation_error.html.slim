@@ -1,0 +1,4 @@
+- if obj.errors.any?
+  ul.alert.alert-danger#error_explanation
+    - obj.errors.full_messages.each do |message|
+      li.ml-2 = message
