@@ -1,0 +1,11 @@
+---
+ja:
+  activerecord:
+    models:
+      post: 記事
+    attributes:
+      post:
+        title: タイトル
+        content: 本文
+        eyecatch: アイキャッチ
+        published: 公開

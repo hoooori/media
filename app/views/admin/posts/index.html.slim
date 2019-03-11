@@ -1,12 +1,12 @@
-h2 記事一覧
+h2 = I18n.t('actions.with_obj.index', obj: Post.model_name.human)
 
 table.table.table-bordered.table-hover#post-table
   thead
     tr
-      th style='width: 10%' eyecatch
-      th style='width: 30%' title
-      th style='width: 30%' published
-      th style='width: 30%' action
+      th style='width: 10%' = Post.human_attribute_name(:eyecatch)
+      th style='width: 30%' = Post.human_attribute_name(:title)
+      th style='width: 30%' = Post.human_attribute_name(:published)
+      th style='width: 30%' = I18n.t('words.action')
   tbody
     - @posts.each do |post|
       tr
@@ -14,7 +14,8 @@ table.table.table-bordered.table-hover#post-table
           .eyecatch
             = image_tag post.eyecatch.crop_image.url, class: 'eyecatch__image'
         td = post.title
-        td = post.published
+        td
+          span class="badge badge-#{post.published ? 'primary' : 'danger'}" = I18n.t("boolean.post.published.#{post.published}").capitalize
         td
           = link_to '編集', edit_admin_post_path(post)
           = link_to '削除', admin_post_path(post), method: :delete, data: { confirm: "投稿「#{post.title}」を削除します。よろしいですか？" }
