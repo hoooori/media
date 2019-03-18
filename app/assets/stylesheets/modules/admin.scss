@@ -29,8 +29,32 @@
     text-decoration: none !important;
     border-bottom: 1px solid rgba(0,0,0,.125);
 
-    &-active {
+    &--active {
       border-right: 10px solid #388fec;
     }
+  }
+}
+
+#post-table {
+  td {
+    vertical-align: middle;
+  }
+}
+
+.insertImageButton {
+  margin-left: 600px;
+}
+
+.modal-body {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.photoList__item {
+  margin: auto;
+  padding: 2px;
+
+  &--active {
+    border: 3px solid #0173AA;
   }
 }

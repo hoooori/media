@@ -3,9 +3,17 @@ ja:
   activerecord:
     models:
       post: 記事
+      photo: 画像
     attributes:
       post:
         title: タイトル
         content: 本文
         eyecatch: アイキャッチ
         published: 公開
+      photo:
+        image: 画像
+  boolean:
+    post:
+      published:
+        true: 'public'
+        false: 'private'
