@@ -1,0 +1,8 @@
+<% if flash.present? %>
+  $("#photoUploadNotice").html("<%= j(render 'shared/flash') %>"); // flashが存在する場合はメッセージを表示
+  $('#photo_contents').val("<%= '' if flash[:success] %>"); // アップロードに成功した場合は、ファイルフィールドを空に
+<% else %>
+  $("#photoUploadNotice").html("<%= j(render 'shared/validation_error', obj: @result) if @result.class == Photo %>"); // flashが空の場合は、バリデーションエラーを表示
+<% end %>
+
+$('#photoList').html("<%= j(render 'admin/photos/photo_list_modal', photos: Photo.all) %>") // 追加された画像を画像一覧に反映

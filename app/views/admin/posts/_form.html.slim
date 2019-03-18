@@ -7,11 +7,39 @@
   .form-group.row
     = f.label :eyecatch, class: 'col-lg-2 col-xl-2'
     = f.file_field :eyecatch, class: 'form-control-file col-lg-5 col-xl-5'
-  .form-check
+  .form-check.mb-5
     = f.check_box :published, class: 'form-check-input'
     = f.label :published, class: 'form-check-label'
   .row
-    = f.submit class: 'mb-3 btn btn-primary btn-sm offset-lg-11 offset-xl-11'
+    .col-lg-4.col-xl-4
+      button.btn.btn-outline-info.btn-sm.mr-3 data-target="#photoUploadModal" data-toggle="modal" type="button" 画像アップロード
+      button.btn.btn-outline-info.btn-sm data-target="#photoInsertModal" data-toggle="modal" type="button" 画像を挿入
+    .col-lg-8.col-xl-8
+      = f.submit class: 'mb-3 btn btn-primary btn-sm'
   textarea data-uk-htmleditor='{markdown:true}' name='post[content]'
     = post.content
 
+#photoUploadModal.modal.fade role="dialog" tabindex="-1"
+  .modal-dialog.modal-dialog-centered role="document"
+    .modal-content
+      .modal-header
+        h3.modal-title 画像アップロード
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        = form_with model: [:admin, Photo.new], class: 'mb-3' do |f|
+          = f.file_field :contents, multiple: true
+          = f.submit I18n.t('words.upload'), class: 'btn btn-primary btn-sm'
+        #photoUploadNotice
+          = render 'shared/flash'
+
+#photoInsertModal.modal.fade role="dialog" tabindex="-1"
+  .modal-dialog.modal-dialog-centered.modal-lg role="document"
+    .modal-content
+      .modal-header
+        h3.modal-title 画像一覧
+        button.insertImageButton.btn.btn-primary.btn-sm.disabled 挿入する
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body#photoList
+        = render 'admin/photos/photo_list_modal', photos: Photo.all

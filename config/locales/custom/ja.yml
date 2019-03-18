@@ -17,6 +17,8 @@ ja:
   words:
     login: ログイン
     logout: ログアウト
+    upload: アップロード
+    file_is_not_selected: ファイルが選択されていません
   flash:
     default:
       success: "%{obj}を%{action}しました"
@@ -27,8 +29,3 @@ ja:
       required: ログインしてください
     logout: ログアウトしました
   dialog: "%{obj}を%{action}します。よろしいでしょうか？"
-  boolean:
-    post:
-      published:
-        true: 'public'
-        false: 'private'

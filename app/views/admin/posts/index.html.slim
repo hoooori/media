@@ -11,8 +11,8 @@ table.table.table-bordered.table-hover#post-table
     - @posts.each do |post|
       tr
         td
-          .eyecatch
-            = image_tag post.eyecatch.crop_image.url, class: 'eyecatch__image'
+          .crop
+            = image_tag post.eyecatch.url(:crop_image), class: 'crop__image'
         td = post.title
         td
           span class="badge badge-#{post.published ? 'primary' : 'danger'}" = I18n.t("boolean.post.published.#{post.published}").capitalize
