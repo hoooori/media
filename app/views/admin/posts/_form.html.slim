@@ -12,8 +12,8 @@
     = f.label :published, class: 'form-check-label'
   .row
     .col-lg-4.col-xl-4
-      button.btn.btn-outline-info.btn-sm.mr-3 data-target="#photoUploadModal" data-toggle="modal" type="button" 画像アップロード
-      button.btn.btn-outline-info.btn-sm data-target="#photoInsertModal" data-toggle="modal" type="button" 画像を挿入
+      button.btn.btn-outline-info.btn-sm.mr-3 data-target="#photoUploadModal" data-toggle="modal" type="button" = I18n.t('words.upload_image')
+      button.btn.btn-outline-info.btn-sm data-target="#photoInsertModal" data-toggle="modal" type="button" = I18n.t('words.insert_image')
     .col-lg-8.col-xl-8
       = f.submit class: 'mb-3 btn btn-primary btn-sm'
   textarea data-uk-htmleditor='{markdown:true}' name='post[content]'
@@ -23,7 +23,7 @@
   .modal-dialog.modal-dialog-centered role="document"
     .modal-content
       .modal-header
-        h3.modal-title 画像アップロード
+        h3.modal-title = I18n.t('words.upload_image')
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body
@@ -37,8 +37,8 @@
   .modal-dialog.modal-dialog-centered.modal-lg role="document"
     .modal-content
       .modal-header
-        h3.modal-title 画像一覧
-        button.insertImageButton.btn.btn-primary.btn-sm.disabled 挿入する
+        h3.modal-title = I18n.t('actions.with_obj.index', obj: Photo.model_name.human)
+        button.insertImageButton.btn.btn-primary.btn-sm.disabled = I18n.t('words.insert')
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body#photoList

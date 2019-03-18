@@ -18,7 +18,9 @@ ja:
     login: ログイン
     logout: ログアウト
     upload: アップロード
-    file_is_not_selected: ファイルが選択されていません
+    upload_image: 画像アップロード
+    insert: 挿入
+    insert_image: 画像を挿入
   flash:
     default:
       success: "%{obj}を%{action}しました"
@@ -28,4 +30,5 @@ ja:
       failed: メールアドレスまたはパスワードが正しくありません
       required: ログインしてください
     logout: ログアウトしました
+    file_is_not_selected: ファイルが選択されていません
   dialog: "%{obj}を%{action}します。よろしいでしょうか？"

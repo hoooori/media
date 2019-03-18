@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', e => {
   // 画像挿入ボタンが有効な状態でクリックされた際のイベント
   insertImageButton.addEventListener('click', e => {
     if(insertImageButton.classList.contains('disabled')) { return; }
-    console.log('hello from insertImageButton');
+    // 選択された画像urlを取得し、記事本文に挿入
   })
 });
 

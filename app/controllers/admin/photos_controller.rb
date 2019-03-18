@@ -2,7 +2,7 @@
 
 class Admin::PhotosController < ApplicationController
   def create
-    return flash.now[:danger] = I18n.t('words.file_is_not_selected') unless photo_params
+    return flash.now[:danger] = I18n.t('flash.file_is_not_selected') unless photo_params
 
     @result = Photo.bulk_insert(photo_params[:contents])
     flash.now[:success] = bulk_insert_flash_message if @result == true
