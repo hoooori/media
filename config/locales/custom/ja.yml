@@ -19,7 +19,6 @@ ja:
     logout: ログアウト
     upload: アップロード
     upload_image: 画像アップロード
-    insert: 挿入
     insert_image: 画像を挿入
   flash:
     default:

@@ -41,10 +41,6 @@
   }
 }
 
-.insertImageButton {
-  margin-left: 600px;
-}
-
 .modal-body {
   max-height: 600px;
   overflow-y: auto;
@@ -52,9 +48,12 @@
 
 .photoList__item {
   margin: auto;
-  padding: 2px;
 
-  &--active {
-    border: 3px solid #0173AA;
+  &:hover {
+    background-color: #4F4F4F;
+  }
+
+  img:hover {
+    opacity: 0.5;
   }
 }
