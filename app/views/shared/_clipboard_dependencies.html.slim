@@ -1,0 +1,9 @@
+script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"
+javascript:
+  const clipboard = new ClipboardJS('.clipboard');
+  clipboard.on('success', function(e) {
+      console.log(e);
+  });
+  clipboard.on('error', function(e) {
+    console.log(e);
+  });
