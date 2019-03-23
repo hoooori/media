@@ -3,8 +3,6 @@
 // ***************************
 document.addEventListener('DOMContentLoaded', e => {
   const photoUploadModal = document.querySelector('#photoUploadModal');
-  const photoInsertModal = document.querySelector('#photoInsertModal');
-  const insertImageButton = document.querySelector('.insertImageButton');
 
   if(photoUploadModal) {
     photoUploadModal.addEventListener('DOMActivate', e => {
