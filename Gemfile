@@ -67,6 +67,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap'
 gem 'carrierwave' # 画像アップロード
+gem 'devise'
 gem 'font-awesome-sass'
 gem 'html2slim'
 gem 'jquery-rails'

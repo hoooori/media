@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resources :photos, only: :create
     resources :categories, except: :show
   end
+
+  devise_for :admin_users, path: 'admin', skip: %i[registrations passwords],
+                           controllers: { sessions: 'admin_users/sessions' }, path_names: { sign_in: 'login', sign_out: 'logout' }
 end

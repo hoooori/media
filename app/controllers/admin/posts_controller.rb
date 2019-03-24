@@ -2,7 +2,9 @@
 
 class Admin::PostsController < ApplicationController
   layout 'admin'
+
   before_action :find_post, only: %i[edit update destroy]
+  before_action :authenticate_admin_user!
 
   def index
     @posts = Post.all

@@ -29,6 +29,11 @@ html
                 h3.mb-0
                   = icon 'fas', 'tag', class: 'mr-2'
                   = I18n.t('words.manage', obj: Category.model_name.human)
+            = link_to destroy_admin_user_session_path, method: :delete, class: 'admin-menu__item pl-3'
+              .py-2
+                h3.mb-0
+                  = icon 'fas', 'sign-out-alt', class: 'mr-2'
+                  = I18n.t('words.logout')
       .admin-content.px-4.pt-3
         = render 'shared/flash'
         = yield
