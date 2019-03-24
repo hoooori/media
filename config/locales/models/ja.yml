@@ -4,14 +4,18 @@ ja:
     models:
       post: 記事
       photo: 画像
+      category: カテゴリ
     attributes:
       post:
+        category: カテゴリ
         title: タイトル
         content: 本文
         eyecatch: アイキャッチ
         published: 公開
       photo:
         image: 画像
+      category:
+        name: カテゴリ名
   boolean:
     post:
       published:

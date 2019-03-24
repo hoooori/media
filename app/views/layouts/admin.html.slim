@@ -15,15 +15,20 @@ html
           h2.py-2.pl-3.mb-0.admin-logo Media
           .admin-menu.text-dark
             = link_to admin_posts_path, class: 'admin-menu__item pl-3'
-              div.py-2 class="#{'admin-menu__item--active' if request.path == admin_posts_path}"
+              .py-2 class="#{'admin-menu__item--active' if request.path == admin_posts_path}"
                 h3.mb-0
                   = icon 'far', 'list-alt', class: 'mr-2'
                   = I18n.t('actions.with_obj.index', obj: Post.model_name.human)
             = link_to new_admin_post_path, class: 'admin-menu__item pl-3'
-              div.py-2 class="#{'admin-menu__item--active' if request.path == new_admin_post_path}"
+              .py-2 class="#{'admin-menu__item--active' if request.path == new_admin_post_path}"
                 h3.mb-0
                   = icon 'fas', 'pencil-alt', class: 'mr-2'
                   = I18n.t('actions.with_obj.new', obj: Post.model_name.human)
+            = link_to admin_categories_path, class: 'admin-menu__item pl-3'
+              .py-2 class="#{'admin-menu__item--active' if params[:controller] == 'admin/categories'}"
+                h3.mb-0
+                  = icon 'fas', 'tag', class: 'mr-2'
+                  = I18n.t('words.manage', obj: Category.model_name.human)
       .admin-content.px-4.pt-3
         = render 'shared/flash'
         = yield

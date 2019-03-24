@@ -1,0 +1,23 @@
+h2 = I18n.t('actions.with_obj.index', obj: Category.model_name.human)
+
+= link_to new_admin_category_path, class: 'btn btn-primary btn-sm mb-3'
+  = I18n.t('actions.with_obj.new', obj: Category.model_name.human)
+
+.row
+  .col-lg-5.col-xl-5
+    table.table.table-bordered.table-hover
+      thead
+        tr
+          th = Category.human_attribute_name(:name)
+          th = I18n.t('words.action')
+      tbody
+        - @categories.each do |category|
+          tr
+            td = category.name
+            td
+              = link_to edit_admin_category_path(category), class: 'mr-2'
+                = icon 'far', 'edit'
+                = I18n.t('actions.default.edit')
+              = link_to admin_category_path(category), method: :delete, data: { confirm: I18n.t('dialog', obj: category.name, action: I18n.t('actions.default.destroy')) }
+                = icon 'far', 'trash-alt'
+                = I18n.t('actions.default.destroy')

@@ -1,10 +1,13 @@
 = render 'shared/clipboard_dependencies'
 = render 'shared/validation_error', obj: post
 
-= form_with model: [:admin, post], local: true do |f|
+= form_with model: [:admin, post], local: true, class: 'mb-5' do |f|
   .form-group.row
     = f.label :title, class: 'col-lg-2 col-xl-2'
     = f.text_field :title, class: 'form-control form-control-sm col-lg-5 col-xl-5'
+  .form-group.row
+    = f.label :category, class: 'col-lg-2 col-xl-2'
+    = f.collection_select :category_id, Category.all, :id, :name, class: 'form-control col-lg-5 col-xl-5'
   .form-group.row
     = f.label :eyecatch, class: 'col-lg-2 col-xl-2'
     = f.file_field :eyecatch, class: 'form-control-file col-lg-5 col-xl-5'
@@ -16,7 +19,7 @@
       button.btn.btn-outline-info.btn-sm.mr-3 data-target="#photoUploadModal" data-toggle="modal" type="button" = I18n.t('words.upload_image')
       button.btn.btn-outline-info.btn-sm data-target="#photoInsertModal" data-toggle="modal" type="button" = I18n.t('words.insert_image')
     .col-lg-8.col-xl-8.text-right
-      = f.submit class: 'mb-3 btn btn-primary btn-sm mr-3'
+      = f.submit class: 'mb-3 btn btn-primary mr-3'
   textarea data-uk-htmleditor='{markdown:true}' name='post[content]'
     = post.content
 
