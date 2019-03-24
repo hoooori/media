@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::CategoriesController < ApplicationController
   layout 'admin'
   before_action :find_category, only: %i[edit update destroy]
