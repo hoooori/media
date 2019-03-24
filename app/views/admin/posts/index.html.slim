@@ -4,15 +4,17 @@ table.table.table-bordered.table-hover#post-table
   thead
     tr
       th style='width: 10%' = Post.human_attribute_name(:eyecatch)
-      th style='width: 30%' = Post.human_attribute_name(:title)
-      th style='width: 30%' = Post.human_attribute_name(:published)
-      th style='width: 30%' = I18n.t('words.action')
+      th style='width: 10%' = Post.human_attribute_name(:category)
+      th style='width: 26%' = Post.human_attribute_name(:title)
+      th style='width: 26%' = Post.human_attribute_name(:published)
+      th style='width: 26%' = I18n.t('words.action')
   tbody
     - @posts.each do |post|
       tr
         td
           .crop
             = image_tag post.eyecatch.url(:crop_image), class: 'crop__image'
+        td = post.category.name
         td = post.title
         td
           span class="badge badge-#{post.published ? 'primary' : 'danger'}" = I18n.t("boolean.post.published.#{post.published}").capitalize

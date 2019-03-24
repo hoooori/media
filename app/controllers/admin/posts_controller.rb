@@ -44,6 +44,6 @@ class Admin::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :eyecatch, :published)
+    params.require(:post).permit(:category_id, :title, :content, :eyecatch, :published)
   end
 end
