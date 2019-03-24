@@ -13,10 +13,8 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration[5.2]
       t.datetime :last_sign_in_at
       t.string :current_sign_in_ip
       t.string :last_sign_in_ip
-
       t.timestamps null: false
     end
-
     add_index :admin_users, :email, unique: true
   end
 end
