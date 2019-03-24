@@ -2,7 +2,9 @@
 
 class Admin::CategoriesController < ApplicationController
   layout 'admin'
+
   before_action :find_category, only: %i[edit update destroy]
+  before_action :authenticate_admin_user!
 
   def index
     @categories = Category.all

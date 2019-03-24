@@ -5,6 +5,7 @@ ja:
       post: 記事
       photo: 画像
       category: カテゴリ
+      admin_user: 管理者
     attributes:
       post:
         category: カテゴリ
@@ -16,6 +17,10 @@ ja:
         image: 画像
       category:
         name: カテゴリ名
+      admin_user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
   boolean:
     post:
       published:

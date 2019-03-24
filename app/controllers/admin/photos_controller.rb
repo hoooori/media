@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Admin::PhotosController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def create
     return flash.now[:danger] = I18n.t('flash.file_is_not_selected') unless photo_params
 
