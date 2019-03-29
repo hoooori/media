@@ -12,12 +12,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_324_063_403) do
+ActiveRecord::Schema.define(version: 20_190_329_125_219) do
   create_table 'admin_users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
     t.datetime 'remember_created_at'
     t.integer 'sign_in_count', default: 0, null: false
     t.datetime 'current_sign_in_at'
@@ -43,6 +41,7 @@ ActiveRecord::Schema.define(version: 20_190_324_063_403) do
   end
 
   create_table 'posts', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'admin_user_id', null: false
     t.integer 'category_id', default: 0, null: false
     t.string 'title', null: false
     t.text 'content', null: false

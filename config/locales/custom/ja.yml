@@ -22,6 +22,7 @@ ja:
     insert_image: 画像を挿入
     manage: "%{obj}管理"
     back: 戻る
+    author: 著者
   flash:
     default:
       success: "%{obj}を%{action}しました"

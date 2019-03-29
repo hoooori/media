@@ -11,14 +11,14 @@ class Admin::PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_admin_user.posts.new
   end
 
   def edit
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_admin_user.posts.new(post_params)
 
     if @post.save
       redirect_to admin_posts_path, flash: { success: create_flash_message('success', 'create', @post, :title) }

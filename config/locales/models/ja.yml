@@ -8,11 +8,12 @@ ja:
       admin_user: 管理者
     attributes:
       post:
+        admin_user: 管理者
         category: カテゴリ
         title: タイトル
         content: 本文
         eyecatch: アイキャッチ
-        published: 公開
+        published: 公開状況
       photo:
         image: 画像
       category:
@@ -24,5 +25,5 @@ ja:
   boolean:
     post:
       published:
-        true: 'public'
-        false: 'private'
+        true: '公開'
+        false: '非公開'
