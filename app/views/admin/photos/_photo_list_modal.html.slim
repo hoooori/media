@@ -1,5 +1,4 @@
 .row
   - photos.each do |photo|
     .col-lg-3.col-xl-3.mb-3.p-0
-      .thumb.photoList__item.clipboard data-clipboard-text=photo.image.url
-        = image_tag photo.image.url(:thumb), class: 'thumb__image'
+      .custom-image.square-image-l.photoList__item.clipboard data-clipboard-text=photo.image.url style="background-image: url(#{photo.image.url})"

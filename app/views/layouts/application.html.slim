@@ -7,4 +7,17 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = yield
+    = render 'top/header'
+    .container.mb-3
+      .row
+        .col-xl-10.offset-xl-1.row
+          .col-lg-2.col-xl-2.d-none.d-lg-block.category-menu.pr-0
+            .py-2.pl-3.mb-0.font-weight-bold = Category.model_name.human
+            = link_to root_path, class: 'category-menu__item pl-3 py-2 d-block text-dark no-underline'
+              | Home
+            - @categories.each do |category|
+              = link_to root_path, class: 'category-menu__item pl-3 py-2 d-block text-dark no-underline'
+                = category.name
+          .col-12.col-lg-10.col-xl-10.top-content
+            = yield
+    = render 'top/footer'

@@ -7,14 +7,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   process resize_to_limit: [640, 640]
 
-  version :thumb do
-    process resize_to_limit: [640, 420]
-  end
-
-  version :crop_image do
-    process resize_to_limit: [320, 320]
-  end
-
   def store_dir
     'uploads/photos/'
   end
