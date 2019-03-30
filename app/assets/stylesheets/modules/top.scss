@@ -1,0 +1,18 @@
+.top-content {
+  .postList {
+    .post {
+      .postInner {
+        display: flex;
+
+        &Content {
+          width: 460px;
+        }
+      }
+    }
+  }
+}
+
+
+.category-menu {
+  border-right: 1px solid rgba(0,0,0,.125);
+}

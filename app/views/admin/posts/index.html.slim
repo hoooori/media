@@ -12,9 +12,7 @@ table.table.table-bordered.table-hover#post-table
   tbody
     - @posts.each do |post|
       tr
-        td
-          .crop
-            = image_tag post.eyecatch.url(:crop_image), class: 'crop__image'
+        td.custom-image.flex-thumb style="background-image: url(#{post.eyecatch.url})"
         td = post.category.name
         td = post.title
         td = post.admin_user.email

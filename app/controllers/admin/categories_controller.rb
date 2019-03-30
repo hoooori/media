@@ -23,7 +23,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       redirect_to admin_categories_path, flash: { success: create_flash_message('success', 'create', @category, :name) }
     else
-      render :index
+      render :new
     end
   end
 
