@@ -9,31 +9,35 @@ html
     = javascript_include_tag 'application'
     = render 'admin/posts/dependencies'
   body
-    .admin-wrapper
-      .admin-sidebar
-        .admin-sidebar-inner
-          h2.py-2.pl-3.mb-0.admin-logo Media
-          .admin-menu.text-dark
-            = link_to admin_posts_path, class: 'admin-menu__item pl-3'
-              .py-2 class="#{'admin-menu__item--active' if request.path == admin_posts_path}"
-                h3.mb-0
-                  = icon 'far', 'list-alt', class: 'mr-2'
-                  = I18n.t('actions.with_obj.index', obj: Post.model_name.human)
-            = link_to new_admin_post_path, class: 'admin-menu__item pl-3'
-              .py-2 class="#{'admin-menu__item--active' if request.path == new_admin_post_path}"
-                h3.mb-0
-                  = icon 'fas', 'pencil-alt', class: 'mr-2'
-                  = I18n.t('actions.with_obj.new', obj: Post.model_name.human)
-            = link_to admin_categories_path, class: 'admin-menu__item pl-3'
-              .py-2 class="#{'admin-menu__item--active' if params[:controller] == 'admin/categories'}"
-                h3.mb-0
-                  = icon 'fas', 'tag', class: 'mr-2'
-                  = I18n.t('words.manage', obj: Category.model_name.human)
-            = link_to destroy_admin_user_session_path, method: :delete, class: 'admin-menu__item pl-3'
-              .py-2
-                h3.mb-0
-                  = icon 'fas', 'sign-out-alt', class: 'mr-2'
-                  = I18n.t('words.logout')
-      .admin-content.px-4.pt-3
-        = render 'shared/flash'
+    - if admin_user_signed_in?
+      .admin-wrapper
+        .admin-sidebar
+          .admin-sidebar-inner
+            h2.py-2.pl-3.mb-0.admin-logo Media
+            .admin-menu.text-dark
+              = link_to admin_posts_path, class: 'admin-menu__item pl-3'
+                .py-2 class="#{'admin-menu__item--active' if request.path == admin_posts_path}"
+                  h3.mb-0
+                    = icon 'far', 'list-alt', class: 'mr-2'
+                    = I18n.t('actions.with_obj.index', obj: Post.model_name.human)
+              = link_to new_admin_post_path, class: 'admin-menu__item pl-3'
+                .py-2 class="#{'admin-menu__item--active' if request.path == new_admin_post_path}"
+                  h3.mb-0
+                    = icon 'fas', 'pencil-alt', class: 'mr-2'
+                    = I18n.t('actions.with_obj.new', obj: Post.model_name.human)
+              = link_to admin_categories_path, class: 'admin-menu__item pl-3'
+                .py-2 class="#{'admin-menu__item--active' if params[:controller] == 'admin/categories'}"
+                  h3.mb-0
+                    = icon 'fas', 'tag', class: 'mr-2'
+                    = I18n.t('words.manage', obj: Category.model_name.human)
+              = link_to destroy_admin_user_session_path, method: :delete, class: 'admin-menu__item pl-3'
+                .py-2
+                  h3.mb-0
+                    = icon 'fas', 'sign-out-alt', class: 'mr-2'
+                    = I18n.t('words.logout')
+        .admin-content.px-4.pt-3
+          = render 'shared/flash'
+          = yield
+    - else
+      .container-fluid
         = yield

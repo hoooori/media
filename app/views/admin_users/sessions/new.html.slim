@@ -1,8 +1,19 @@
-.card.admin-login-form.text-center
-  .card-body
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .form-group
-        = f.email_field :email, class: 'form-control', placeholder: AdminUser.human_attribute_name(:email)
-      .form-group
-        = f.password_field :password, class: 'form-control', placeholder: AdminUser.human_attribute_name(:password)
-      = f.submit I18n.t('words.login'), class: 'btn btn-primary btn-sm'
+.row
+  .col-4.offset-lg-4.text-center.pt-5
+    h2 Media Admin
+.row
+  .col-4.offset-lg-4.text-center
+    = render 'shared/flash'
+.row
+  .col-4.offset-lg-4
+    .card.text-center
+      .card-body
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            = f.email_field :email, class: 'form-control', placeholder: AdminUser.human_attribute_name(:email)
+          .form-group
+            = f.password_field :password, class: 'form-control', placeholder: AdminUser.human_attribute_name(:password)
+          = f.submit I18n.t('words.login'), class: 'btn btn-primary btn-sm'
+.row
+  .col-4.offset-lg-4.text-center
+    small Copyright &copy; hoooori. All Rights Reserved.
