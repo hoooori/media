@@ -1,9 +1,12 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand href="#"  Media
-  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+.header.navbar-expand-lg.navbar-light.bg-light
+  center
+    a.navbar-brand href="#" Media
+  button.navbar-toggler.position-absolute aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto.d-lg-none
+      li.nav-item
+        = link_to 'Home', root_path, class: 'nav-link'
       - @categories.each do |category|
         li.nav-item
-          a.nav-link href="#"  = category.name
+          a.nav-link href="#" = category.name
