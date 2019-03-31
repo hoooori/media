@@ -25,3 +25,5 @@ table.table.table-bordered.table-hover#post-table
           = link_to admin_post_path(post), method: :delete, data: { confirm: I18n.t('dialog', obj: post.title, action: I18n.t('actions.default.destroy')) }
             = icon 'far', 'trash-alt'
             = I18n.t('actions.default.destroy')
+.post-pagination
+  center = paginate @posts
