@@ -16,7 +16,7 @@ html
             = link_to root_path, class: "categoryMenu__item pl-3 py-2 d-block text-dark no-underline #{'categoryMenu__item--active' if request.path == root_path}"
               | Home
             - @categories.each do |category|
-              = link_to root_path, class: 'categoryMenu__item pl-3 py-2 d-block text-dark no-underline'
+              = link_to category_path(category), class: "categoryMenu__item pl-3 py-2 d-block text-dark no-underline #{'categoryMenu__item--active' if request.path == category_path(category)}"
                 = category.name
           .col-12.col-lg-10.col-xl-10.top-content
             = yield

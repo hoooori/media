@@ -23,6 +23,7 @@ ja:
     manage: "%{obj}管理"
     back: 戻る
     author: 著者
+    new_post: 新着記事
   flash:
     default:
       success: "%{obj}を%{action}しました"
