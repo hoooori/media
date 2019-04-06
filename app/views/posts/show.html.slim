@@ -1,0 +1,11 @@
+.article-info.col-xl-7.col-lg-9.col-md-12.col-12.mx-auto.mb-3
+  small.mr-4 = "#{Category.model_name.human}：#{@post.category.name}"
+  small.mr-4 = "#{I18n.t('actions.default.update')}：#{I18n.l(@post.updated_at.to_date, format: :default)}"
+  small = "#{I18n.t('actions.default.create')}：#{I18n.l(@post.created_at.to_date, format: :default)}"
+
+.col-xl-7.col-lg-9.col-md-12.col-12.mx-auto.mb-3
+  h2.pb-3.hr-line = @post.title
+
+.col-xl-7.col-lg-9.col-md-12.col-12.mx-auto
+  .markdown-body
+    = render_md(@post.content)

@@ -72,5 +72,6 @@ gem 'font-awesome-sass'
 gem 'html2slim'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'redcarpet'
 gem 'rmagick' # 画像リサイズ
 gem 'slim-rails'

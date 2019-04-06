@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   root 'top#index'
+
   resources :categories, only: :show
+  resources :posts, only: :show
 
   namespace :admin do
     resources :posts, except: :show

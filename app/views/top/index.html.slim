@@ -1,2 +1,7 @@
-h4.text-center.mt-3 = I18n.t('words.new_post')
-= render 'shared/post_list', posts: @posts
+.col-xl-7.row.mx-auto
+  .col-xl-2.col-lg-2.d-none.d-lg-block.categoryMenu.pr-0
+    = render 'side_menu', categories: @categories
+  .col-xl-10.col-lg-10.col-md-12.col-12.top-content
+    h6.mt-4 = I18n.t('words.new_post_with_date', date: I18n.l(Date.today, format: :default))
+    hr.mt-0.mb-4
+    = render 'post_list', posts: @posts

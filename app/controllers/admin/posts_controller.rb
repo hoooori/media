@@ -7,7 +7,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin_user!
 
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(6)
+    @posts = Post.includes(:admin_user, :category).all.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def new
