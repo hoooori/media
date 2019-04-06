@@ -1,16 +1,12 @@
 .postList
   - posts.each do |post|
     .post.pb-5
-      = link_to root_path, class: 'postInner no-underline row'
+      = link_to post_path(post), class: 'postInner no-underline row'
         .col-3.col-lg-3.col-xl-3
           .custom-image.flex-thumb style="background-image: url(#{post.eyecatch.url})"
         .col-9.col-lg-9.col-xl-9.pl-0
           .postInnerContent.text-dark
             .postInnerContent__title= post.title
-            .postInnerContent__info.small
-              = post.category.name
-              br
-              = I18n.l(post.created_at.to_date, format: :default)
 .row
   .col-12
     .post-pagination

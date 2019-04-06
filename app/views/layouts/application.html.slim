@@ -8,16 +8,7 @@ html
     = javascript_include_tag 'application'
   body
     = render 'top/header'
-    .container.mb-3
+    .container-fluid.mb-3
       .row
-        .col-xl-10.offset-xl-1.row
-          .col-lg-2.col-xl-2.d-none.d-lg-block.categoryMenu.pr-0
-            .py-2.pl-3.mb-0.font-weight-bold = Category.model_name.human
-            = link_to root_path, class: "categoryMenu__item pl-3 py-2 d-block text-dark no-underline #{'categoryMenu__item--active' if request.path == root_path}"
-              | Home
-            - @categories.each do |category|
-              = link_to category_path(category), class: "categoryMenu__item pl-3 py-2 d-block text-dark no-underline #{'categoryMenu__item--active' if request.path == category_path(category)}"
-                = category.name
-          .col-12.col-lg-10.col-xl-10.top-content
-            = yield
+        = yield
     = render 'top/footer'
