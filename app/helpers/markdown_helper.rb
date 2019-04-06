@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module MarkdownHelper
   def render_md(text)
     options = {
       filter_html: false,
       hard_wrap: true,
-      link_attributes: { rel: 'nofollow', target: "_blank" },
+      link_attributes: { rel: 'nofollow', target: '_blank' },
       space_after_headers: true,
       fenced_code_blocks: true
     }
